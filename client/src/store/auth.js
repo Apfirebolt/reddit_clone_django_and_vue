@@ -27,7 +27,6 @@ export const useAuth = defineStore("auth", {
       try {
         const response = await httpClient.post("login", loginData);
         if (response.data) {
-          this.authData = response.data;
           toast.success("Login successful!");
           // set the data in cookie
           let user = {
@@ -36,6 +35,7 @@ export const useAuth = defineStore("auth", {
             email: response.data.user.email,
             id: response.data.user.id,
           }
+          this.authData = user;
           Cookie.set("user", JSON.stringify(user), { expires: 30 });
           router.push("/dashboard");
         }
@@ -54,9 +54,15 @@ export const useAuth = defineStore("auth", {
       try {
         const response = await httpClient.post("register", registerData);
         if (response.data && response.status === 201) {
-          this.authData = response.data;
           toast.success("Registration successful!");
-          Cookie.set("user", JSON.stringify(response.data), { expires: 30 });
+          let user = {
+            token: response.data.access,
+            username: response.data.username,
+            email: response.data.email,
+            id: response.data.id,
+          }
+          this.authData = user;
+          Cookie.set("user", JSON.stringify(user), { expires: 30 });
           router.push("/dashboard");
         }
       } catch (error) {

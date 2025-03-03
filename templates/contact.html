@@ -1,0 +1,63 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Reddit Clone - Contact 
+{% endblock %} 
+
+{% block content %}
+
+
+
+<body>
+  {% include 'header.html' %}
+  <div class="about-container">
+    <h2 class="heading">Contact</h2>
+    <div class="columns">
+        <div class="column is-5">
+            <figure class="image is-4by3">
+                <img
+                    src="https://picsum.photos/800/600/?random"
+                    alt="Contact Us"
+                />
+            </figure>
+        </div>
+        <div class="column is-6 is-offset-1">
+            <h2 class="is-4">
+                We'd love to hear from you! Please fill out the form below to get in touch with us.
+            </h2>
+            <br />
+            <form action="/contact/" method="post">
+                {% csrf_token %}
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" type="text" name="name" placeholder="Your Name">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input" type="email" name="email" placeholder="Your Email">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Message</label>
+                    <div class="control">
+                        <textarea class="textarea" name="message" placeholder="Your Message"></textarea>
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button day-color midnight-green-bg" type="submit">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button day-color-bg midnight-green" type="reset">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+  {% include 'footer.html' %}
+</body>
+
+{% endblock %}

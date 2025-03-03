@@ -1,0 +1,88 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Softgenie - Home 
+{% endblock %} 
+
+{% block content %}
+
+
+
+<body>
+  {% include 'header.html' %}
+  <div class="about-container">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="notification is-danger">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+    
+    <h2 class="heading">Home</h2>
+    <div class="columns">
+        <div class="column">
+            <img
+                src="https://picsum.photos/800/600/?random"
+                alt="Description"
+                height="500"
+                width="800"
+                class="about-image"
+            />
+        </div>
+        <div class="column is-6 is-offset-1">
+            <h3 class="is-2">About Softgenie</h3>
+            <p>
+                Softgenie is a web portal created primarily to share public APIs which I have created in my free time. As a software engineer, 
+                I have always been passionate about creating software applications that can help people in their day-to-day lives. At the time of writing this,
+                there are 3 APIs available on this portal. These APIs are free to use and can be accessed by anyone who is interested in using them.
+            </p>
+            
+            <p>
+                These APIs use various datasets which are publicly available on the internet. The APIs are built using Python language and Django Framework. Django Rest 
+                Framework is used to create RESTful APIs. The APIs are hosted on Digital Ocean and are available for public use. The APIs are well documented through Swagger and can be accessed
+                using the given link <a href="https://softgenie.org/api-docs/">here</a>. 
+            </p>
+
+            <p>
+              Over time I will be adding more APIs to this portal. I hope that these APIs will be useful to developers who are looking to build applications using these APIs.
+              Any suggestions or feedback are welcome. Please feel free to reach out to me using the contact form available on this portal.
+              Also, please feel free to suggest any new APIs that you would like to see on this portal.
+            </p>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column is-12">
+            <h3 class="is-2">About Movies API</h3>
+            <p>
+                The movies API can be accessed through /movies endpoint. The API provides information about movies such as movie title, description, genre, and release date.
+                The API contains about 8000 movies mostly from India. The API is free to use and can be accessed by anyone who is interested in using it.
+            </p>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column is-12">
+            <h3 class="is-2">About Games API</h3>
+            <p>
+                Games API can be accessed through /games endpoint. The API provides information about games such as game title, description, genre, release date, developer,
+                ratings and sells in United States, Europe and Japan. The API contains around 64000 games of all platforms. The API is free to use and can be accessed by anyone who is interested in using it.
+                Work is in progress on advanced filtering and sorting options for this API.
+            </p>
+        </div>
+    </div>
+
+    <div class="columns">
+      <div class="column is-12">
+          <h3 class="is-2">About Ecommerce API</h3>
+          <p>
+              Ecommerce API can be accessed through /ecommerce endpoint. The API provides information about products such as product title, description, price and more. 
+              The data is taken from Myntra.com, a popular on-line clothing store in India. The API contains around 10000 products of all categories. 
+          </p>
+      </div>
+  </div>
+</div>
+  {% include 'footer.html' %}
+</body>
+
+{% endblock %}

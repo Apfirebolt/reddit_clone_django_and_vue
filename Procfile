@@ -1,0 +1,1 @@
+web: gunicorn reddit_clone.wsgi:application --workers 3 --threads 2

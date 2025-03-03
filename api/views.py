@@ -20,6 +20,18 @@ class CreateCustomUserApiView(CreateAPIView):
     queryset = CustomUser.objects.all()
     permission_classes = []
 
+    def post(self, request, *args, **kwargs):
+        username = request.data.get('username')
+        email = request.data.get('email')
+
+        if CustomUser.objects.filter(username=username).exists():
+            return Response({"message": "Username already exists"}, status=400)
+        
+        if CustomUser.objects.filter(email=email).exists():
+            return Response({"message": "Email already exists"}, status=400)
+
+        return super().post(request, *args, **kwargs)
+
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     # Replace the serializer with your custom

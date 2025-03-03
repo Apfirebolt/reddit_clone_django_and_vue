@@ -44,6 +44,9 @@ export const useAuth = defineStore("auth", {
         if (error.response && error.response.data) {
           message = error.response.data.message;
         }
+        if (error.response && error.response.status === 401) {
+          message = "Invalid credentials!";
+        }
         toast.error(message);
         console.log('Some error', error);
         return error;

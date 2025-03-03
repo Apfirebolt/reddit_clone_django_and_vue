@@ -28,7 +28,7 @@ SECRET_KEY = 't55x2*!cyr@(wu80sc=85mg#p$$z*5r)#ypourwe2ga&$3c+p#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['206.81.29.244', 'localhost', 'http://softgenie.org', 'softgenie.org', 'www.softgenie.org']
+ALLOWED_HOSTS = ['localhost']
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
     # Add the reddit clone app to the list of installed apps
     'accounts',
+    'subreddit',
     'api'
 ]
 

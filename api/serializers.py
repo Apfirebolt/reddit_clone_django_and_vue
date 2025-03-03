@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from accounts.models import CustomUser
+from subreddit.models import SubReddit, Post, Comment, Rules, PostVote
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
@@ -78,3 +79,38 @@ class ListCustomUserSerializer(serializers.ModelSerializer):
             "lastName",
             "is_staff",
         )
+
+
+class SubRedditSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = SubReddit
+        fields = "__all__"
+
+
+class PostSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Post
+        fields = "__all__"
+
+
+class CommentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Comment
+        fields = "__all__"
+
+
+class RulesSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Rules
+        fields = "__all__"
+
+
+class PostVoteSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PostVote
+        fields = "__all__"

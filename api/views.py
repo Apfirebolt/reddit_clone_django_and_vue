@@ -1,4 +1,4 @@
-from rest_framework.generics import ListCreateAPIView, ListAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, ListAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView
 from .serializers import (
     ListCustomUserSerializer,
     CustomUserSerializer,
@@ -35,3 +35,12 @@ class ListCustomUsersApiView(ListAPIView):
     filterset_fields = ['username', 'email']
     ordering_fields = ['username', 'email']
     search_fields = ['username', 'email']
+
+
+class UserProfileApiView(RetrieveUpdateDestroyAPIView):
+    serializer_class = CustomUserSerializer
+    queryset = CustomUser.objects.all()
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user

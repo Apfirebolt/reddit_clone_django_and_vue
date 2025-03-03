@@ -83,7 +83,7 @@ export const useAuth = defineStore("auth", {
         const headers = {
           Authorization: `Bearer ${JSON.parse(authData).token}`,
         };
-        const response = await httpClient.get("users/profile", { headers });
+        const response = await httpClient.get("profile", { headers });
         console.log(response.data);
       } catch (error) {
         console.log(error);

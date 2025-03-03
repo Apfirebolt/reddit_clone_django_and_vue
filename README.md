@@ -3,18 +3,16 @@
 ![Postgres](https://img.shields.io/badge/Postgres-12.x-blue)
 ![Django Rest Framework](https://img.shields.io/badge/DRF-3.x-red)
 
-# Django Movie API
+# Reddit Clone in Django and Vue
 
-This project is a Django-based web application that provides a RESTful API for managing a collection of movies. It uses Django Rest Framework to handle API requests and responses.
-
-For the time being this project is available at http://softgenie.org/api/movies but might be taken down in the future.
+This is a full-featured Reddit clone for learning purposes. It demonstrates how to build a web application using Django for the backend and Vue.js for the frontend. The project includes features such as user authentication, CRUD operations, and API integration.
 
 ## Features
 
-- Add, update, delete, and retrieve movies
-- Search for movies by title or genre
-- Pagination for large datasets
-- Authentication and authorization
+- User authentication and authorization
+- Creation of sub-reddits (topics/discussions)
+- Post feature
+- Comment Feature
 
 ## Requirements
 
@@ -22,6 +20,8 @@ For the time being this project is available at http://softgenie.org/api/movies 
 - Django 5.1.4
 - Django Rest Framework
 - Postgresql
+- Node 23.7
+- Vue 3.5.13
 
 ## Installation
 

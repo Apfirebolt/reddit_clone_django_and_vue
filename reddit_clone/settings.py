@@ -139,10 +139,21 @@ SPECTACULAR_SETTINGS = {
 }
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 50,
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ]
 }
 
 SIMPLE_JWT = {
@@ -153,7 +164,6 @@ SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("Bearer", ),
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

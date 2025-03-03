@@ -12,12 +12,11 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     }
 
     def validate(self, attrs):
-
         data = super(CustomTokenObtainPairSerializer, self).validate(attrs)
         # Custom data
         data.update(
             {
-                "userData": {
+                "user": {
                     "email": self.user.email,
                     "username": self.user.username,
                     "id": self.user.id,
